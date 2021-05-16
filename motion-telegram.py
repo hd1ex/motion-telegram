@@ -8,7 +8,7 @@ import threading
 import re
 import os
 
-from gettext import gettext
+from gettext import translation
 
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
@@ -21,11 +21,17 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+lang = 'de'
+lang_translations = translation('base', localedir='locales', languages=[lang])
+lang_translations.install()
+gettext = lang_translations.gettext
+
+
 class MotionTelegramBot:
     class Mode(enum.Enum):
-        SILENT = 'silent'
-        TEXT = 'text'
-        VIDEO = 'video'
+        SILENT = gettext('silent')
+        TEXT = gettext('text')
+        VIDEO = gettext('video')
 
         def get_message(self):
             if self == MotionTelegramBot.Mode.SILENT:
@@ -35,7 +41,7 @@ class MotionTelegramBot:
                                'text. I will not send or save any video '
                                'files.')
             elif self == MotionTelegramBot.Mode.VIDEO:
-                return gettext('From now on I will send short video files on '
+                return gettext('From now on I will send video files on '
                                'detected motion.')
 
             return gettext('I am in an undefined mode :(')
@@ -60,12 +66,17 @@ class MotionTelegramBot:
                 'Please provide a telegram bot token in the server env var '
                 'TELEGRAM_BOT_TOKEN')
 
+        if self.chat_id is None:
+            raise Exception(
+                'Please provide a telegram chat id in the server env var '
+                'TELEGRAM_CHAT_ID')
+
         self.updater = Updater(token)
         self.mutex = threading.Lock()
         self.mode = MotionTelegramBot.Mode.SILENT
 
         self.updater.dispatcher.add_handler(
-            CommandHandler('mode', self.mode_command_handler))
+            CommandHandler(gettext('mode'), self.mode_command_handler))
 
     def mode_command_handler(self, update: Update, context: CallbackContext):
         args = context.args
@@ -73,8 +84,8 @@ class MotionTelegramBot:
         if not args:
             # TODO: show keyboard
             update.message.reply_text(gettext(
-                f'The current mode is "{self.mode.get_description()}." '
-                'Use the command "/mode <mode-name>" to set a new mode.'))
+                "The current mode is '{}'. Use the command '/mode <mode-name>'"
+                " to set a new mode.").format(self.mode.get_description()))
             return
 
         for mode in MotionTelegramBot.Mode:
@@ -84,7 +95,8 @@ class MotionTelegramBot:
                 update.message.reply_text(mode.get_message())
                 return
 
-        update.message.reply_text(gettext(f'Unknown mode: <{args[0]}>'))
+        update.message.reply_text(
+            gettext("Unknown mode: '{}'").format(args[0]))
 
     def start(self):
         self.updater.start_polling()
@@ -98,9 +110,9 @@ class MotionTelegramBot:
                 if self.mode == MotionTelegramBot.Mode.TEXT:
                     self.updater.bot.send_message(
                         self.chat_id,
-                        gettext(
-                            f'Detected some motion on camera {camera_id}'
-                        ))
+                        gettext('Detected some motion on camera {}.')
+                        .format(camera_id)
+                    )
                 return
             m = re.match(r'motion-end (.+)', event)
             if m:

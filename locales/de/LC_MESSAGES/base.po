@@ -1,0 +1,84 @@
+# German translation for the motion telegram bot.
+# Copyright (C) 2021 Alexander Sommer
+# This file is distributed under the same license as the PACKAGE package.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-16 15:06+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: motion-telegram.py:32
+msgid "silent"
+msgstr "still"
+
+#: motion-telegram.py:33
+msgid "text"
+msgstr "text"
+
+#: motion-telegram.py:34
+msgid "video"
+msgstr "video"
+
+#: motion-telegram.py:38
+msgid "From now on I am completely silent."
+msgstr "Ab jetzt bin ich still."
+
+#: motion-telegram.py:40
+msgid ""
+"From now on I will only report motion using text. I will not send or save "
+"any video files."
+msgstr ""
+"Ab jetzt werde ich nur noch Bewegung per Text melden. Ich werde keine Videos "
+"mehr senden oder speichern."
+
+#: motion-telegram.py:44
+msgid "From now on I will send video files on detected motion."
+msgstr "Ab jetzt werde ich Videodateien bei erkannter Bewegung senden."
+
+#: motion-telegram.py:47 motion-telegram.py:58
+msgid "I am in an undefined mode :("
+msgstr "Ich bin in einem undefinierten Modus :("
+
+#: motion-telegram.py:51
+msgid "silent - do not report any camera events"
+msgstr "still - melde keine Kamera-Ereignisse"
+
+#: motion-telegram.py:53
+msgid "text - report camera events using text"
+msgstr "text - melde Kamera-Ereignisse mit Text"
+
+#: motion-telegram.py:55
+msgid "video - report camera events by sending a video clip of the event"
+msgstr ""
+"video - melde Kamera-Ereignisse, indem ein Video des Ereignisses gesendet "
+"wird"
+
+#: motion-telegram.py:79
+msgid "mode"
+msgstr "modus"
+
+#: motion-telegram.py:87
+#, fuzzy
+msgid ""
+"The current mode is '{}'. Use the command '/mode <mode-name>' to set a new "
+"mode."
+msgstr ""
+"Der aktuelle Modus ist '{}'. Benutze den "
+"Befehl '/modus <modus-name>', um einen neuen Modus zu setzen."
+
+#: motion-telegram.py:99
+#, fuzzy
+msgid "Unknown mode: '{}'"
+msgstr "Unbekannter Modus: '{}'"
+
+#: motion-telegram.py:113
+#, fuzzy
+msgid "Detected some motion on camera {}."
+msgstr "Es wurde Bewegung von der Kamera {} erkannt."

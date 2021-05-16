@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-16 15:06+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: motion-telegram.py:32
+msgid "silent"
+msgstr ""
+
+#: motion-telegram.py:33
+msgid "text"
+msgstr ""
+
+#: motion-telegram.py:34
+msgid "video"
+msgstr ""
+
+#: motion-telegram.py:38
+msgid "From now on I am completely silent."
+msgstr ""
+
+#: motion-telegram.py:40
+msgid ""
+"From now on I will only report motion using text. I will not send or save "
+"any video files."
+msgstr ""
+
+#: motion-telegram.py:44
+msgid "From now on I will send video files on detected motion."
+msgstr ""
+
+#: motion-telegram.py:47 motion-telegram.py:58
+msgid "I am in an undefined mode :("
+msgstr ""
+
+#: motion-telegram.py:51
+msgid "silent - do not report any camera events"
+msgstr ""
+
+#: motion-telegram.py:53
+msgid "text - report camera events using text"
+msgstr ""
+
+#: motion-telegram.py:55
+msgid "video - report camera events by sending a video clip of the event"
+msgstr ""
+
+#: motion-telegram.py:79
+msgid "mode"
+msgstr ""
+
+#: motion-telegram.py:87
+msgid ""
+"The current mode is '{}'. Use the command '/mode <mode-name>' to set a new "
+"mode."
+msgstr ""
+
+#: motion-telegram.py:99
+msgid "Unknown mode: '{}'"
+msgstr ""
+
+#: motion-telegram.py:113
+msgid "Detected some motion on camera {}."
+msgstr ""
